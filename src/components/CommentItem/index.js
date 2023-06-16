@@ -1,5 +1,5 @@
 // Write your code here
-import {fromDistanceToNow} from 'date-fns'
+import {formatDistanceToNow} from 'date-fns'
 
 import './index.css'
 
@@ -13,7 +13,7 @@ const CommentItem = props => {
     ? 'https://assets.ccbp.in/frontend/react-js/comments-app/like-img.png'
     : 'https://assets.ccbp.in/frontend/react-js/comments-app/liked-img.png'
 
-  const postedTime = fromDistanceToNow(date)
+  const postedTime = formatDistanceToNow(date)
 
   const onClickLiked = () => {
     const {toggleIsLiked} = props
@@ -27,20 +27,20 @@ const CommentItem = props => {
 
   return (
     <li className="comment-items">
-      <div className="card3">
+      <div className="comment-container">
         <div className={initialClassName}>
           <p className="initial">{initial}</p>
         </div>
         <div>
-          <div>
-            <p>{name}</p>
-            <p>{postedTime} ago</p>
+          <div className="time-container">
+            <p className="username">{name}</p>
+            <p className="time">{postedTime} ago</p>
           </div>
-          <p>{comment}</p>
+          <p className="comment">{comment}</p>
         </div>
       </div>
-      <div>
-        <div>
+      <div className="button-container">
+        <div className="like-image-container">
           <img src={likeImgUrl} className="like-image" alt="like" />
           <button
             className={likeTextClassName}
@@ -63,7 +63,7 @@ const CommentItem = props => {
           />
         </button>
       </div>
-      <hr />
+      <hr className="comment-line" />
     </li>
   )
 }
