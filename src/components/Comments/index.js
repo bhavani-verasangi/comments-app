@@ -1,11 +1,11 @@
 import {Component} from 'react'
-
 import {v4} from 'uuid'
 
 import CommentItem from '../CommentItem'
 
 import './index.css'
 
+// eslint-disable-next-line
 const initialContainerBackgroundClassNames = [
   'amber',
   'blue',
@@ -60,7 +60,6 @@ class Comments extends Component {
   onAddComment = event => {
     event.preventDefault()
     const {nameInput, commentInput} = this.state
-
     // eslint-disable-next-line no-shadow
     const initialContainerBackgroundClassNames = `initial-container ${
       // eslint-disable-next-line no-use-before-define
@@ -101,39 +100,44 @@ class Comments extends Component {
       <div className="app-container">
         <div className="comments-container">
           <h1 className="heading">Comments</h1>
-
-          <form onSubmit={this.onAddComment} className="comment-form-container">
-            <p>Say something about 4.0 Technologies</p>
-            <input
-              value={nameInput}
-              className="input"
-              onChange={this.onChangeComment}
-              placeholder="Your Name"
-            />
-            <textarea
-              value={commentInput}
-              className="input1"
-              rows="8"
-              cols="50"
-              placeholder="Your Comment"
-            />
-            <button className="button" type="submit">
-              Add Comment
-            </button>
-          </form>
+          <div className="comments-input-container">
+            <form onSubmit={this.onAddComment} className="form-container">
+              <p className="description">
+                Say something about 4.0 Technologies
+              </p>
+              <input
+                value={nameInput}
+                className="name-input"
+                onChange={this.onChangeComment}
+                placeholder="Your Name"
+              />
+              <textarea
+                value={commentInput}
+                className="comment-input"
+                rows="8"
+                cols="50"
+                placeholder="Your Comment"
+              />
+              <button className="add-button" type="submit">
+                Add Comment
+              </button>
+            </form>
+          </div>
 
           <img
             src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png"
             className="image"
             alt="comments"
           />
-        </div>
-        <hr />
-        <p>
-          {commentsList.length} <span>Comments</span>
-        </p>
 
-        <ul>{this.renderCommentsList()}</ul>
+          <hr className="line" />
+          <p className="comments-count">
+            <span>{commentsList.length} </span>
+            Comments
+          </p>
+
+          <ul className="comments-list">{this.renderCommentsList()}</ul>
+        </div>
       </div>
     )
   }
