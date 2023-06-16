@@ -27,3 +27,98 @@
 }
 
 /* Write your CSS here */
+.comment-items {
+  list-style-type: none;
+}
+
+.comment-container {
+  display: flex;
+}
+
+.initial-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  margin-top: 18px;
+  margin-right: 8px;
+  flex-shrink: 0px;
+}
+
+.initial {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  margin: 0px;
+}
+
+.time-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.username {
+  color: #334155;
+  font-size: 16px;
+  font-family: 'Roboto';
+  font-weight: 500;
+}
+
+.time {
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.comment {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Roboto';
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.like-image-container {
+  display: flex;
+  align-items: center;
+}
+
+.like-image {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.button {
+  color: #7e858e;
+  background-color: transparent;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.active {
+  color: #0ea5e9;
+}
+
+.delete {
+  width: 20px;
+  height: 20px;
+}
+
+.comment-line {
+  border: 1px solid #dee0e3;
+  width: 100%;
+}
