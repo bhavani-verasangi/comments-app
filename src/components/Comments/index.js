@@ -1,4 +1,5 @@
 import {Component} from 'react'
+
 import {v4} from 'uuid'
 
 import CommentItem from '../CommentItem'
@@ -60,12 +61,9 @@ class Comments extends Component {
   onAddComment = event => {
     event.preventDefault()
     const {nameInput, commentInput} = this.state
-    // eslint-disable-next-line no-shadow
-    const initialContainerBackgroundClassNames = `initial-container ${
-      // eslint-disable-next-line no-use-before-define
+    const initialContainerBackgroundClassName = `initial-container ${
       initialContainerBackgroundClassNames[
         Math.ceil(
-          // eslint-disable-next-line no-use-before-define
           Math.random() * initialContainerBackgroundClassNames.length - 1,
         )
       ]
@@ -77,7 +75,7 @@ class Comments extends Component {
       comment: commentInput,
       date: new Date(),
       isLiked: false,
-      initialClassName: initialContainerBackgroundClassNames,
+      initialClassName: initialContainerBackgroundClassName,
     }
     this.setState(prevState => ({
       commentList: [...prevState.commentsList, newComment],
@@ -108,22 +106,21 @@ class Comments extends Component {
               <input
                 value={nameInput}
                 className="name-input"
-                onChange={this.onChangeComment}
+                onChange={this.onChangeName}
                 placeholder="Your Name"
               />
               <textarea
                 value={commentInput}
                 className="comment-input"
                 rows="8"
-                cols="50"
                 placeholder="Your Comment"
+                onChange={this.onChangeComment}
               />
               <button className="add-button" type="submit">
                 Add Comment
               </button>
             </form>
           </div>
-
           <img
             src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png"
             className="image"
@@ -131,8 +128,8 @@ class Comments extends Component {
           />
 
           <hr className="line" />
-          <p className="comments-count">
-            <span>{commentsList.length} </span>
+          <p className="paragraph">
+            <span className="comments-count">{commentsList.length} </span>
             Comments
           </p>
 
